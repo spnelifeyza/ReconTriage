@@ -1,0 +1,54 @@
+{
+  "high": [
+    "admin", "administrator", "dashboard", "panel", "root",
+    "control", "manage", "management", "console", "backend",
+    "internal", "private", "secure", "secret",
+    "superuser", "sysadmin", "cpanel", "webadmin",
+    "staff", "employee", "moderator",
+
+    "backup", "backups", "db", "database", "dump",
+    "config", "configuration", "env", ".env",
+    "secret", "secrets", "key", "keys",
+    "token", "tokens", "credential", "credentials",
+
+    "access", "restricted", "hidden", "protected",
+    "vault", "storage", "bucket", "s3",
+
+    "adminpanel", "admin-console", "controlpanel"
+  ],
+
+  "med": [
+    "login", "signin", "auth", "authentication",
+    "account", "accounts", "user", "users",
+    "profile", "profiles",
+
+    "portal", "client", "member", "members",
+    "session", "sessions", "oauth", "token",
+
+    "register", "signup", "create-account",
+    "forgot", "reset", "password", "change-password",
+
+    "verify", "verification", "confirm",
+    "2fa", "mfa", "otp",
+
+    "support", "help", "ticket", "contact"
+  ],
+
+  "low": [
+    "api", "apis", "dev", "development",
+    "test", "testing", "staging", "beta",
+    "uat", "sandbox", "debug", "mock",
+
+    "v1", "v2", "v3", "v4",
+    "graphql", "rest", "endpoint",
+
+    "docs", "documentation", "swagger", "openapi",
+    "status", "health", "metrics", "monitor",
+
+    "cdn", "static", "assets",
+    "public", "files", "uploads",
+
+    "service", "services", "microservice",
+    "proxy", "gateway"
+  ]
+}
