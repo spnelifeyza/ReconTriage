@@ -103,7 +103,7 @@ Example output:
 
 ---
 
-## 🏗️ Architecture
+## 🏗️ Code Architecture
 
 The diagram below shows how ReconTriage processes data from input to prioritized output.
 
