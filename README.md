@@ -109,7 +109,7 @@ The diagram below shows how ReconTriage processes data from input to prioritized
 
 <p align="center">
   <a href="images/arch.png">
-    <img src="images/arch.png" width="800">
+    <img src="images/arch.png" width="400">
   </a>
 </p>
 
