@@ -1,7 +1,7 @@
-# ReconTriage 🔍
+# ReconTriage
 
 <p align="center">
-  <img src="images/logo.png" width="300"/>
+  <img src="images/logo.png" width="600"/>
 </p>
 
 <p align="center">
@@ -134,5 +134,5 @@ outputs/report.txt
 
 ---
 
-Developed by **Feyza Sapan**
+Developed by **Feyza SAPAN**
 
