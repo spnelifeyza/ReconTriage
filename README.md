@@ -1,156 +1,138 @@
 # ReconTriage 🔍
 
-ReconTriage is an automated reconnaissance and analysis tool that helps security researchers and bug bounty hunters quickly identify high-value targets.
+<p align="center">
+  <img src="images/logo.png" width="300"/>
+</p>
 
-Instead of overwhelming users with raw recon data, it collects, processes, and prioritizes results so you can directly focus on critical attack surfaces.
+<p align="center">
+  <b>Reconnoiter • Analyze • Prioritize</b>
+</p>
 
 ---
 
-## ⚙️ Requirements & Setup
+## 🚀 About
 
-Before running ReconTriage, make sure the following are installed and available in your system PATH:
+ReconTriage is an automated reconnaissance and analysis tool designed for security researchers and bug bounty hunters.
 
-* Go (1.20 or higher)
-* subfinder
-* assetfinder
+Instead of overwhelming users with raw recon data, it:
+- Collects subdomains automatically
+- Processes and analyzes results
+- Prioritizes high-value targets
 
-### Install Go
+👉 Focus on what matters. Skip the noise.
 
-https://go.dev/dl/
+---
 
-Verify installation:
+## ⚙️ Requirements
 
-```bash
-go version
+Make sure the following tools are installed and accessible in your system:
+
+- subfinder  
+- assetfinder  
+
+---
+
+### 🔍 Install subfinder
+
 ```
-
----
-
-### Install subfinder
-
-```bash
 go install github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
 ```
 
 ---
 
-### Install assetfinder
+### 🔎 Install assetfinder
 
-```bash
+```
 go install github.com/tomnomnom/assetfinder@latest
 ```
 
 ---
 
-### Add Go binaries to PATH (IMPORTANT)
+## ▶️ Usage
 
-**Windows (PowerShell):**
-
-```bash
-setx PATH "%PATH%;%USERPROFILE%\go\bin"
 ```
-
-**Linux/macOS:**
-
-```bash
-export PATH=$PATH:$(go env GOPATH)/bin
-```
-
-Verify tools:
-
-```bash
-subfinder -h
-assetfinder
-```
-
----
-
-## 🚀 Installation & Usage
-
-```bash
-git clone https://github.com/spnelifeyza/ReconTriage.git
-cd ReconTriage
-go mod tidy
-go run main.go example.com
+.\bin\recontriage.exe example.com
 ```
 
 ---
 
 ## 🧠 How It Works
 
-ReconTriage performs the following pipeline:
-
-* Collects subdomains using subfinder and assetfinder
-* Removes duplicates and aggregates results
-* Checks which hosts are alive
-* Processes URLs
-* Extracts page titles
-* Analyzes results using keyword-based logic
-* Classifies targets into:
-
-  * HIGH
-  * MEDIUM
-  * LOW
-
-Example output:
-
-```
-[HIGH]  https://admin.example.com      → Admin Panel
-[HIGH]  https://api.example.com/login  → Login Page
-[MED]   https://dev.example.com        → Development Server
-[LOW]   https://www.example.com        → Homepage
-```
+1. Collect subdomains using subfinder & assetfinder  
+2. Merge and remove duplicates  
+3. Analyze targets (title extraction + keyword matching)  
+4. Assign severity levels  
+5. Output prioritized results  
 
 ---
 
-## 🏗️ Code Architecture
-
-The diagram below shows how ReconTriage processes data from input to prioritized output.
-
-<p align="center">
-  <a href="images/arch.png">
-    <img src="images/arch.png" width="400">
-  </a>
-</p>
-
----
-
-## 📁 Project Structure
+## 🏗️ Project Structure
 
 ```
 ReconTriage/
-│── main.go
-│── go.mod
+│── bin/
+│   └── recontriage.exe
 │
-├── internal/
-│   ├── subdomain/
-│   ├── host/
+│── configs/
+│   └── keywords.json
+│
+│── images/
+│   └── logo.png
+│
+│── internal/
 │   ├── analyzer/
+│   ├── host/
+│   ├── subdomain/
 │   └── utils/
 │
-├── images/
-│   └── arch.png
-│
-└── outputs/
+│── outputs/
+│── README.md
 ```
 
 ---
 
-## 📌 Notes
+## 📊 Output
 
-* External tools must be installed and in PATH
-* Missing dependencies will cause runtime errors
-* The tool uses system binaries (subfinder, assetfinder), not Go libraries
+Results are saved in:
+
+```
+outputs/all.txt
+outputs/alive.txt
+outputs/timeout.txt
+outputs/errors.txt
+outputs/results.json
+outputs/report.txt
+```
+
+### 📁 File Descriptions
+
+- **alive.txt**  
+  Targets that responded successfully (HTTP response received).
+
+- **all.txt**  
+  Contains all discovered subdomains collected from recon tools.
+
+- **errors.txt**  
+  Targets that returned connection or request errors during scanning.
+
+- **report.txt**  
+  Human-readable summary of findings with prioritized targets.
+
+- **results.json**  
+  Final analyzed output including URL, page title, and severity level.
+
+- **timeout.txt**  
+  Targets that did not respond within the specified timeout duration.
+---
+
+## 🎯 Roadmap
+
+- [ ] HTTP probing (alive hosts)  
+- [ ] CLI improvements  
+- [ ] Auto-report generation  
+- [ ] Colored terminal output  
 
 ---
 
-## ⚠️ Disclaimer
+Developed by **Feyza Sapan**
 
-This tool is intended for educational purposes and authorized security testing only.
-Do not use it against systems without permission.
-
----
-
- ## Feyza SAPAN
-
----

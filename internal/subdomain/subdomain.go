@@ -7,6 +7,15 @@ import (
 	"strings"
 )
 
+// color codes
+const (
+	Blue   = "\033[34m"
+	Green  = "\033[32m"
+	Yellow = "\033[33m"
+	Red    = "\033[31m"
+	Reset  = "\033[0m"
+)
+
 // we split commands will be executed because of that go doesn't use shell
 
 func RunSubfinder(domain string) []string {
@@ -15,14 +24,14 @@ func RunSubfinder(domain string) []string {
 	// catch the output
 	output, err := cmd.StdoutPipe()
 	if err != nil {
-		fmt.Println("Subfinder error:", err)
+		fmt.Println(Red+"Subfinder error:"+Reset, err)
 		return nil
 	}
 
 	// start subfinder
 	err = cmd.Start()
 	if err != nil {
-		fmt.Println("Subfinder start error:", err)
+		fmt.Println(Red+"Subfinder start error:"+Reset, err)
 		return nil
 	}
 
@@ -45,14 +54,14 @@ func RunAssetfinder(domain string) []string {
 	// catch output
 	output, err := cmd.StdoutPipe()
 	if err != nil {
-		fmt.Println("Assetfinder error:", err)
+		fmt.Println(Red+"Assetfinder error:"+Reset, err)
 		return nil
 	}
 
 	// start assetfinder
 	err = cmd.Start()
 	if err != nil {
-		fmt.Println("Assetfinder start error:", err)
+		fmt.Println(Red+"Assetfinder start error:"+Reset, err)
 		return nil
 	}
 
@@ -86,23 +95,24 @@ func RemoveDuplicates(input []string) []string {
 }
 
 func GetAllSubdomains(domain string) []string {
+	fmt.Println(Yellow + "[*] Collecting subdomains..." + Reset)
 	// channel
 	resultsChan := make(chan []string)
 
 	// start goroutine
 	// subfinder
 	go func() {
-		fmt.Println("[*] Running subfinder...")
+		fmt.Println(Blue + "[*] Running subfinder..." + Reset)
 		res := RunSubfinder(domain)
-		fmt.Println("[+] Subfinder finished:", len(res))
+		fmt.Printf(Green+"[+] Subfinder finished: %d"+Reset+"\n", len(res))
 		resultsChan <- res
 	}()
 
 	// assetfinder
 	go func() {
-		fmt.Println("[*] Running assetfinder...")
+		fmt.Println(Blue + "[*] Running assetfinder..." + Reset)
 		res := RunAssetfinder(domain)
-		fmt.Println("[+] Assetfinder finished:", len(res))
+		fmt.Printf(Green+"[+] Assetfinder finished: %d"+Reset+"\n", len(res))
 		resultsChan <- res
 	}()
 

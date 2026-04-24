@@ -50,5 +50,31 @@
 
     "service", "services", "microservice",
     "proxy", "gateway"
-  ]
+  ],
+
+  "negative": [
+  "error", "errors",
+  "not found", "404", "page not found",
+  "forbidden", "403 forbidden", "access denied", "denied",
+  "unauthorized", "401 unauthorized",
+  "bad request", "invalid request",
+  "internal server error", "500 error", "server error",
+  "service unavailable", "temporarily unavailable", "maintenance",
+
+  "does not exist", "no such file", "cannot be found",
+  "file not found", "missing", "invalid",
+
+  "coming soon", "under construction", "maintenance page",
+  "placeholder", "dummy", "test page", "example domain",
+  "lorem ipsum", "default page",
+
+  "redirecting", "moved permanently", "redirect",
+  "loading", "please wait",
+
+  "static file", "image not available",
+  "cdn error", "asset not found",
+
+  "access forbidden", "request blocked", "blocked",
+  "permission denied", "not authorized"
+]
 }
