@@ -77,15 +77,6 @@ chmod +x bin/recontriage-intel
 ./bin/recontriage-intel
 ```
 
----
-
-After running the tool, you will be prompted to enter a target domain:
-
-```
-Enter target domain: example.com
-```
-
----
 
 ## ⚡ Alternative (Run from inside bin/)
 
