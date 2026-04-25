@@ -23,12 +23,14 @@ Instead of overwhelming users with raw recon data, it:
 
 ---
 
-## ⚙️ Requirements
+## ⚠️ Requirements
 
-Make sure the following tools are installed and accessible in your system:
+Make sure the following tools are installed and accessible in your system PATH:
 
-- subfinder  
-- assetfinder  
+```bash 
+subfinder
+assetfinder
+```
 
 ---
 
@@ -50,11 +52,57 @@ go install github.com/tomnomnom/assetfinder@latest
 
 ## ▶️ Usage
 
-```
-.\bin\recontriage.exe example.com
+Run ReconTriage:
+
+---
+
+### 🪟 Windows
+```bash
+.\bin\recontriage.exe
 ```
 
 ---
+
+### 🐧 Linux
+```bash
+chmod +x bin/recontriage
+./bin/recontriage
+```
+
+---
+
+### 🍎 macOS (Intel)
+```bash
+chmod +x bin/recontriage-intel
+./bin/recontriage-intel
+```
+
+---
+
+After running the tool, you will be prompted to enter a target domain:
+
+```
+Enter target domain: example.com
+```
+
+---
+
+## ⚡ Alternative (Run from inside bin/)
+
+If you are inside the `bin` directory:
+
+### Windows
+```bash
+.\recontriage.exe
+```
+
+### Linux / macOS
+```bash
+./recontriage
+```
+
+---
+
 
 ## 🧠 How It Works
 
@@ -71,7 +119,12 @@ go install github.com/tomnomnom/assetfinder@latest
 ```
 ReconTriage/
 │── bin/
-│   └── recontriage.exe
+│   └── linux/
+|     └── recontriage
+│   └── mac/
+|     └── recontriage-intel
+│   └── windows/
+|     └── recontriage.exe
 │
 │── configs/
 │   └── keywords.json
